@@ -10,9 +10,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 app.get('/',(req: Request , res: Response) => {
-    res.send('Serveur in process');
+    res.send('Server in process');
 });
 
 app.listen(PORT , () =>{
-    console.log('Server online on https://localhost:3000')
+    console.log('Server online on http://localhost:3000')
 });
