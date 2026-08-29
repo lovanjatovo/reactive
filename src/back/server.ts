@@ -14,5 +14,5 @@ app.get('/',(req: Request , res: Response) => {
 });
 
 app.listen(PORT , () =>{
-    console.log('Server online on https://localhost:${PORT}')
+    console.log('Server online on https://localhost:3000')
 });
