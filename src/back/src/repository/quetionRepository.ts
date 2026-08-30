@@ -4,3 +4,9 @@ export const getAllQuestionWithOptions = async () => {
     const result = await pool.query(query);
     return result.rows;
 }
+
+export const getTheQuestionById = async () => {
+    const query = 'SELECT q.id , q.title , q.description WHERE q.id = $1;'
+    const result = await pool.query(query);
+    return result.rows;
+}
