@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { Request , Response } from 'express';
+import { getQuestions } from './src/controller/questionController';
 
 dotenv.config();
 
@@ -16,3 +17,5 @@ app.get('/',(req: Request , res: Response) => {
 app.listen(PORT , () =>{
     console.log('Server online on http://localhost:3000')
 });
+
+app.get('/api/questions' , getQuestions);
