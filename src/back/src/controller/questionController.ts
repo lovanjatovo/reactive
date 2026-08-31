@@ -11,7 +11,7 @@ export const getQuestions = async (req: Request,res: Response) => {
     }
 };
 
-export const getQuestionById (req: Request,res: Response) => {
+export const getQuestionById = async (req: Request,res: Response) => {
     try{
         const question = await getTheQuestionById();
         res.status(200).json(question);
