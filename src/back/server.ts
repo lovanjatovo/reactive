@@ -14,8 +14,8 @@ app.get('/',(req: Request , res: Response) => {
     res.send('Server in process');
 });
 
+app.get('/api/questions' , getQuestions);
+
 app.listen(PORT , () =>{
     console.log('Server online on http://localhost:3000')
 });
-
-app.get('/api/questions' , getQuestions);
