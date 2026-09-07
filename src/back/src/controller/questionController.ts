@@ -1,5 +1,5 @@
 import {Request , Response} from 'express';
-import { getAllQuestionWithOptions , getQuestionById , updateQuestion} from '../repository/quetionRepository';
+import { getAllQuestionWithOptions , getQuestionById , updateQuestion , deleteQuestion} from '../repository/quetionRepository';
 
 export const getQuestions = async (req: Request,res: Response) => {
     try{
@@ -27,6 +27,16 @@ export const update_Question = async (req: Request , res: Response) =>{
         res.status(201).json(updates); 
     }catch(error){
         console.error('Error during updating your informations');
+        res.status(500).json({message: 'Internal Server Error'});
+    }
+}
+
+export const delete_Question = async (req: Request , res: Response) => {
+    try{
+        const delession = await deleteQuestion();
+        res.status(204).json(delession);
+    }catch(error){
+        console.error('Error during deleting question');
         res.status(500).json({message: 'Internal Server Error'});
     }
 }
