@@ -16,3 +16,9 @@ export const updateQuestion = async () =>{
     const result = await pool.query(query);
     return result.rows;
 }
+
+export const deleteQuestion = async () => {
+    const query = 'DELETE FROM TABLE questions WHERE id = $1;'
+    const result = await pool.query(query);
+    return result.rows;
+}
