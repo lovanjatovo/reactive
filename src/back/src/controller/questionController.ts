@@ -22,18 +22,14 @@ export const getQuestion_ById = async (req: Request,res: Response) => {
     }
 }
 
-export const update_Question = async (req: Request , res: Response) =>{
-    try{
-        const updates = await updateQuestion();
-        res.status(201).json(updates); 
-    }catch(error){
-        console.error('Error during updating your informations');
-        res.status(500).json({message: 'Internal Server Error'});
-    }
+export const update_Question = async (id: number , title: string) =>{
+    const query = 'UPDATE questions SET title = $1 WHERE id = $2 RETURNING *;';
+    const result = await pool.query(query,[title,id]);
+    return result.rows[0];
 }
 
 export const delete_Question = async (id: number) => {
-    const query = 'DELETE FROM questions WHERE id = $1;'
-        const result = await pool.query(query,[id])
-        return result.rows;
-    }
+    const query = 'DELETE FROM questions WHERE id = $1;';
+    const result = await pool.query(query,[id])
+    return result.rows;
+}
