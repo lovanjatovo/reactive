@@ -33,3 +33,15 @@ export const updateQuestion = async (req: Request , res: Response) => {
         res.status(500).json({message:'Internal Server Error'})
     }
 };
+
+export const deleteQuestion = async (req: Request , res: Response) =>{
+    try{
+        const id = Number(req.params.id);
+
+        await delete_Question(id);
+        res.status(204).send();
+    }catch(error){
+        console.error('Error during deleting question:',error);
+        res.status(500).json({message: 'Internal Server Error'})
+    }
+};
