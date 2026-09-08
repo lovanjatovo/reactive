@@ -1,5 +1,6 @@
 import {Request , Response} from 'express';
 import { getAllQuestionWithOptions , getQuestionById , updateQuestion , deleteQuestion} from '../repository/quetionRepository';
+import { pool } from '../configuration/database';
 
 export const getQuestions = async (req: Request,res: Response) => {
     try{
@@ -31,12 +32,8 @@ export const update_Question = async (req: Request , res: Response) =>{
     }
 }
 
-export const delete_Question = async (req: Request , res: Response) => {
-    try{
-        const delession = await deleteQuestion();
-        res.status(204).json(delession);
-    }catch(error){
-        console.error('Error during deleting question');
-        res.status(500).json({message: 'Internal Server Error'});
+export const delete_Question = async (id: number) => {
+    const query = 'DELETE FROM questions WHERE id = $1;'
+        const result = await pool.query(query,[id])
+        return result.rows;
     }
-}
