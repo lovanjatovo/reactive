@@ -11,14 +11,14 @@ export const getQuestionById = async () => {
     return result.rows;
 }
 
-export const updateQuestion = async () =>{
-    const query = 'UPDATE TABLE questions WHERE id = $1;'
-    const result = await pool.query(query);
-    return result.rows;
+export const update_Question = async (id: number , title: string) =>{
+    const query = 'UPDATE questions SET title = $1 WHERE id = $2 RETURNING *;';
+    const result = await pool.query(query,[title,id]);
+    return result.rows[0];
 }
 
-export const deleteQuestion = async () => {
-    const query = 'DELETE FROM TABLE questions WHERE id = $1;'
-    const result = await pool.query(query);
+export const delete_Question = async (id: number) => {
+    const query = 'DELETE FROM questions WHERE id = $1;';
+    const result = await pool.query(query,[id])
     return result.rows;
 }
