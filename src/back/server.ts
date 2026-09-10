@@ -12,5 +12,5 @@ app.use(express.json());
 app.use('/api', questionRoutes);
 
 app.listen(PORT , () =>{
-    console.log('Server online on http://localhost:${PORT}')
+    console.log('Server online on http://localhost:3000');
 });
