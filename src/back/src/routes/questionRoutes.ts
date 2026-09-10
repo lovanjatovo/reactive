@@ -4,7 +4,7 @@ import { getQuestions , updateQuestion , deleteQuestion} from '../controller/que
 const router = Router();
 
 router.get('/questions', getQuestions);
-router.put('/questions/{id}', updateQuestion);
-router.delete('questions/{id}', deleteQuestion);
+router.put('/questions/:id', updateQuestion);
+router.delete('/questions/:id', deleteQuestion);
 
 export default router;
