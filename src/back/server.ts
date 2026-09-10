@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { Request , Response } from 'express';
-import { getQuestions} from './src/controller/questionController';
+import { getQuestions , updateQuestion , deleteQuestion} from './src/controller/questionController';
 
 dotenv.config();
 
@@ -14,7 +14,9 @@ app.get('/',(req: Request , res: Response) => {
     res.send('Server in process');
 });
 
-app.get('/api/questions' , getQuestions);
+app.get('/questions' , getQuestions);
+app.put('/questions/{id}', updateQuestion);
+app.delete('/questions/{id}', deleteQuestion);
 
 app.listen(PORT , () =>{
     console.log('Server online on http://localhost:3000')
