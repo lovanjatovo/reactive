@@ -1,8 +1,10 @@
 import { Router } from 'express';
-import { getQuestions} from '../controller/questionController';
+import { getQuestions , updateQuestion , deleteQuestion} from '../controller/questionController';
 
 const router = Router();
 
 router.get('/questions', getQuestions);
+router.put('/questions/{id}', updateQuestion);
+router.delete('questions/{id}', deleteQuestion);
 
 export default router;
