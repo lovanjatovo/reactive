@@ -11,6 +11,8 @@ app.use(express.json());
 
 app.use('/questions', getQuestions);
 app.use('/questions/:id' , getQuestion_ById);
+app.use('/questions/:id' , updateQuestion);
+app.use('/questions/:id' , deleteQuestion);
 
 app.listen(PORT , () =>{
     console.log('Server online on http://localhost:3000');
