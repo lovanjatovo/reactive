@@ -1,10 +1,11 @@
 import { Router } from 'express';
-import { getQuestions , updateQuestion , deleteQuestion} from '../controller/questionController';
+import { getQuestions , updateQuestion , deleteQuestion , getQuestion_ById} from '../controller/questionController';
 
 const router = Router();
 
-router.get('/api/questions', getQuestions);
-router.put('/api/questions/:id', updateQuestion);
-router.delete('/api/questions/:id', deleteQuestion);
+router.get('/questions', getQuestions);
+router.get('/questions/:id' , getQuestion_ById);
+router.put('/questions/:id', updateQuestion);
+router.delete('/questions/:id', deleteQuestion);
 
 export default router;
