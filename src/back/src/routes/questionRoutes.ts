@@ -3,8 +3,8 @@ import { getQuestions , updateQuestion , deleteQuestion} from '../controller/que
 
 const router = Router();
 
-router.get('/questions', getQuestions);
-router.put('/questions/:id', updateQuestion);
-router.delete('/questions/:id', deleteQuestion);
+router.get('/api/questions', getQuestions);
+router.put('/api/questions/:id', updateQuestion);
+router.delete('/api/questions/:id', deleteQuestion);
 
 export default router;
