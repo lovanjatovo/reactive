@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import questionRoutes from './src/routes/questionRoutes';
+import { getQuestions , getQuestion_ById , updateQuestion , deleteQuestion } from './src/controller/questionController';
 
 dotenv.config();
 
@@ -9,7 +9,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.use('/', questionRoutes);
+app.use('/questions', getQuestions);
+app.use('/questions/:id' , getQuestion_ById);
 
 app.listen(PORT , () =>{
     console.log('Server online on http://localhost:3000');
