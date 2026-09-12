@@ -9,6 +9,9 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+app.use('/' , ()=>{
+    console.log('The server is running on localhost 3000;');
+})
 app.use('/questions', getQuestions);
 app.use('/questions/:id' , getQuestion_ById);
 app.use('/questions/:id' , updateQuestion);
