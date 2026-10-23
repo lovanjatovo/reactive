@@ -13,7 +13,7 @@ export const getQuestions = async (req: Request,res: Response) => {
 
 export const getQuestion_ById = async (req: Request,res: Response) => {
     try{
-        const question = await getQuestionById();
+        const question = await getQuestionById(req.params.id);
         res.status(200).json(question);
     }catch(error){
         console.error('Error during fetching the question you wanted to find: ' , error);
