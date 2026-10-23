@@ -5,10 +5,10 @@ export const getAllQuestionWithOptions = async () => {
     return result.rows;
 }
 
-export const getQuestionById = async () => {
-    const query = 'SELECT q.id , q.title , q.description WHERE q.id = $1;'
-    const result = await pool.query(query);
-    return result.rows;
+export const getQuestionById = async (id: number) => {
+    const query = 'SELECT q.id , q.title , q.description FROM questions q WHERE q.id = $1;'
+    const result = await pool.query(query, [id]);
+    return result.rows[0];
 }
 
 export const update_Question = async (id: number , title: string) =>{
