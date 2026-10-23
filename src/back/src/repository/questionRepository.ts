@@ -22,3 +22,9 @@ export const delete_Question = async (id: number) => {
     const result = await pool.query(query,[id])
     return result.rows;
 }
+
+export const create_question = async (title: string , description: string) => {
+    const query = 'INSERT INTO questions (title , description) VALUES ($1 , $2) RETURNING *;'
+    const result = await pool.query(query,[title , description]);
+    return result.rows[0];
+}
