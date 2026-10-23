@@ -1,5 +1,5 @@
 import {Request , Response} from 'express';
-import { getAllQuestionWithOptions , getQuestionById , update_Question , delete_Question} from '../repository/quetionRepository';
+import { getAllQuestionWithOptions , getQuestionById , update_Question , delete_Question} from '../repository/questionRepository';
 
 export const getQuestions = async (req: Request,res: Response) => {
     try{
